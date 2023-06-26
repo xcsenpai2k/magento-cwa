@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <title>Form Create</title>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <block class="MyPackage\Student\Block\Page" name="student.create" template="MyPackage_Student::create.phtml" />
+        </referenceContainer>
+    </body>
+</page>

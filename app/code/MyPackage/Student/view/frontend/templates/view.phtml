@@ -1,0 +1,19 @@
+<!-- File: Vendor/Module/view/frontend/templates/view.phtml -->
+
+<?php
+/** @var \MyPackage\Student\Block\Page $block */
+$student = $block->getStudent();
+?>
+
+<div>
+    <h1>Student Information</h1>
+    <ul>
+        <li>Entity ID: <?php echo $student->getEntityId(); ?></li>
+        <li>Name: <?php echo $student->getName(); ?></li>
+        <li>Gender: <?php echo $student->getGender() ? "Female" : "Male";  ?></li>
+        <li>Date of Birth: <?php echo $student->getDob(); ?></li>
+        <li>Address: <?php echo $student->getAddress(); ?></li>
+    </ul>
+
+
+</div>

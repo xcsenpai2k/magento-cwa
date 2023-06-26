@@ -1,0 +1,100 @@
+<?php
+/** @var $block \MyPackage\Student\Block\Page */
+?>
+<div class="student-list">
+    <div class="filter-form">
+        <form action="<?php echo $block->escapeUrl($block->getUrl('*/*/*')) ?>" method="get">
+            <div class="form-row">
+                <label for="entity-id-filter"><?php echo __('Entity ID') ?>:</label>
+                <input type="text" id="entity-id-filter" name="entity_id"
+                       value="<?php echo $block->getRequest()->getParam('entity_id') ?>"/>
+            </div>
+            <div class="form-row">
+                <label for="name-filter"><?php echo __('Name') ?>:</label>
+                <input type="text" id="name-filter" name="name"
+                       value="<?php echo $block->getRequest()->getParam('name') ?>"/>
+            </div>
+            <div class="form-row">
+                <label for="gender-filter"><?php echo __('Gender') ?>:</label>
+                <select id="gender-filter" name="gender">
+                    <option value=""><?php echo __('All') ?></option>
+                    <option value="male"
+                            <?php if ($block->getRequest()->getParam('gender') == 'male'): ?>selected="selected"<?php endif; ?>><?php echo __('Male') ?></option>
+                    <option value="female"
+                            <?php if ($block->getRequest()->getParam('gender') == 'female'): ?>selected="selected"<?php endif; ?>><?php echo __('Female') ?></option>
+                </select>
+            </div>
+            <div class="form-row">
+                <label for="age-from-filter"><?php echo __('Age From') ?>:</label>
+                <input type="text" id="age-from-filter" name="age_from"
+                       value="<?php echo $block->getRequest()->getParam('age_from') ?? 0 ?>"/>
+            </div>
+            <div class="form-row">
+                <label for="age-to-filter"><?php echo __('Age To') ?>:</label>
+                <input type="text" id="age-to-filter" name="age_to"
+                       value="<?php echo $block->getRequest()->getParam('age_to') ?>"/>
+            </div>
+            <button type="submit"><?php echo __('Filter') ?></button>
+        </form>
+    </div>
+    <div class="sort-options">
+        <label for="sort-select"><?php echo __('Sort By:') ?></label>
+        <select id="sort-select" onchange="location = this.value;">
+            <option
+                value="<?php echo $block->escapeUrl($block->getUrl('*/*/*', ['sort' => 'entity_id', 'order' => 'asc'])) ?>"
+                <?php if ($block->getRequest()->getParam('sort') == 'entity_id' && $block->getRequest()->getParam('order') == 'asc'): ?>selected="selected"<?php endif; ?>><?php echo __('Entity ID Ascending') ?></option>
+            <option
+                value="<?php echo $block->escapeUrl($block->getUrl('*/*/*', ['sort' => 'entity_id', 'order' => 'desc'])) ?>"
+                <?php if ($block->getRequest()->getParam('sort') == 'entity_id' && $block->getRequest()->getParam('order') == 'desc'): ?>selected="selected"<?php endif; ?>><?php echo __('Entity ID Descending') ?></option>
+            <option
+                value="<?php echo $block->escapeUrl($block->getUrl('*/*/*', ['sort' => 'name', 'order' => 'asc'])) ?>"
+                <?php if ($block->getRequest()->getParam('sort') == 'name' && $block->getRequest()->getParam('order') == 'asc'): ?>selected="selected"<?php endif; ?>><?php echo __('Name Ascending') ?></option>
+            <option
+                value="<?php echo $block->escapeUrl($block->getUrl('*/*/*', ['sort' => 'name', 'order' => 'desc'])) ?>"
+                <?php if ($block->getRequest()->getParam('sort') == 'name' && $block->getRequest()->getParam('order') == 'desc'): ?>selected="selected"<?php endif; ?>><?php echo __('Name Descending') ?></option>
+            <option
+                value="<?php echo $block->escapeUrl($block->getUrl('*/*/*', ['sort' => 'dob', 'order' => 'asc'])) ?>"
+                <?php if ($block->getRequest()->getParam('sort') == 'dob' && $block->getRequest()->getParam('order') == 'asc'): ?>selected="selected"<?php endif; ?>><?php echo __('DOB Ascending') ?></option>
+            <option
+                value="<?php echo $block->escapeUrl($block->getUrl('*/*/*', ['sort' => 'dob', 'order' => 'desc'])) ?>"
+                <?php if ($block->getRequest()->getParam('sort') == 'dob' && $block->getRequest()->getParam('order') == 'desc'): ?>selected="selected"<?php endif; ?>><?php echo __('DOB Descending') ?></option>
+        </select>
+    </div>
+    <br>
+    <div class="actions">
+        <a href="<?php echo $block->getUrl('student/index/create'); ?>" class="button">Create Student</a>
+    </div>
+    <table>
+        <thead>
+        <tr>
+            <th>Entity ID</th>
+            <th>Name</th>
+            <th>Gender</th>
+            <th>Date of Birth</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <?php foreach ($block->getStudentCollection() as $student): ?>
+            <tr>
+                <td><?php echo $student->getEntityId(); ?></td>
+                <td><?php echo $student->getName(); ?></td>
+                <td><?php echo $student->getGender() ? 'Female' : 'Male'; ?></td>
+                <td><?php echo $student->getDob(); ?></td>
+                <td>
+                    <a href="<?php echo $block->getUrl('student/index/show', ['id' => $student->getEntityId()]); ?>">Show</a>
+                    <a href="<?php echo $block->getUrl('student/index/edit', ['id' => $student->getEntityId()]); ?>">Edit</a>
+                    <a href="<?php echo $block->getUrl('student/index/delete', ['id' => $student->getEntityId()]); ?>"
+                       onclick="return confirm('Are you sure you want to delete this student?')">
+                        Delete
+                    </a>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>
+
+<?php echo $block->getPagerHtml(); ?>
+

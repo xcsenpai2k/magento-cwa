@@ -1,0 +1,36 @@
+<?php
+/** @var $block \MyPackage\Student\Block\Page */
+?>
+
+<form action="<?php echo $block->createStudent(); ?>" method="post">
+    <div class="field">
+        <label for="name" class="label">Name</label>
+        <div class="control">
+            <input type="text" id="name" name="name" class="input" required>
+        </div>
+    </div>
+    <div class="field">
+        <label for="gender" class="label">Gender</label>
+        <div class="control">
+            <select id="gender" name="gender" class="input" required>
+                <option value="0">Male</option>
+                <option value="1">Female</option>
+            </select>
+        </div>
+    </div>
+    <div class="field">
+        <label for="dob" class="label">Date of Birth</label>
+        <div class="control">
+            <input type="date" id="dob" name="dob" class="input" required>
+        </div>
+    </div>
+    <div class="field">
+        <label for="address" class="label">Address</label>
+        <div class="control">
+            <input type="text" id="address" name="address" class="input" required>
+        </div>
+    </div>
+    <div class="actions">
+        <button type="submit" class="button">Save</button>
+    </div>
+</form>

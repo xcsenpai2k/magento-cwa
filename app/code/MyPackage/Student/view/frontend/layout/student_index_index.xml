@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <title>Student Management</title>
+        <css src="MyPackage_Student::css/styles.css" />
+    </head>
+    <referenceBlock name="content">
+        <block class="MyPackage\Student\Block\Page" name="student.index" template="MyPackage_Student::page.phtml">
+            <block class="Magento\Theme\Block\Html\Pager" name="student.list.pager" template="Magento_Theme::html/pager.phtml">
+            </block>
+        </block>
+    </referenceBlock>
+</page>
