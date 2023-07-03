@@ -7,7 +7,7 @@
  */
 
 use Magento\Framework\App\Bootstrap;
-//die(var_dump($_SERVER));
+
 try {
     require __DIR__ . '/../app/bootstrap.php';
 } catch (\Exception $e) {
@@ -27,5 +27,4 @@ HTML;
 $bootstrap = Bootstrap::create(BP, $_SERVER);
 /** @var \Magento\Framework\App\Http $app */
 $app = $bootstrap->createApplication(\Magento\Framework\App\Http::class);
-//die(var_dump($MAGE_ROOT));
 $bootstrap->run($app);

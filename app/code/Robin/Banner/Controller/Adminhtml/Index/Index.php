@@ -10,7 +10,6 @@ class Index implements HttpGetActionInterface
     public function __construct(private readonly PageFactory $resultPageFactory)
     {
     }
-
     public function execute()
     {
         $resultPage = $this->resultPageFactory->create();

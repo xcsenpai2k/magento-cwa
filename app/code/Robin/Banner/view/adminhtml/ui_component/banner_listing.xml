@@ -31,8 +31,8 @@
             </storageConfig>
             <updateUrl path="mui/index/render"/>
         </settings>
-        <aclResource>Magento_Cms::page</aclResource>
-        <dataProvider class="Magento\Cms\Ui\Component\DataProvider" name="banner_listing_data_source">
+        <aclResource>Robin_Banner::page</aclResource>
+        <dataProvider class="Robin\Banner\Ui\Component\DataProvider" name="banner_listing_data_source">
             <settings>
                 <requestFieldName>id</requestFieldName>
                 <primaryFieldName>id</primaryFieldName>
