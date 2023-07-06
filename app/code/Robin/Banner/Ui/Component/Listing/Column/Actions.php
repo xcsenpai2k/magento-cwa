@@ -1,6 +1,6 @@
 <?php
 
-namespace Robin\Banner\Ui\Component\Listing\Columns;
+namespace Robin\Banner\Ui\Component\Listing\Column;
 
 use Magento\Framework\View\Element\UiComponent\ContextInterface;
 use Magento\Framework\View\Element\UiComponentFactory;
@@ -56,7 +56,7 @@ class Actions extends \Magento\Ui\Component\Listing\Columns\Column
                         'href' => $this->urlBuilder->getUrl(self::BANNER_URL_PATH_DELETE, ['id' => $item['id']]),
                         'label' => __('Delete'),
                         'confirm' => [
-                            'title' => __('Delete ${ $.$data.image }'),
+                            'title' => __('Delete this'),
                             'message' => __('Are you sure you wan\'t to delete this record?')
                         ]
                     ];

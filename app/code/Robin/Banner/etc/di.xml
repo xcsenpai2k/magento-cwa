@@ -15,7 +15,12 @@
         </arguments>
     </virtualType>
 
-    <virtualType name="Robin\Banner\BannerImageUpload" type="Magento\Catalog\Model\ImageUploader">
+    <type name="Robin\Banner\Controller\Adminhtml\Index\Image\Upload">
+        <arguments>
+            <argument name="imageUploader" xsi:type="object">Robin\Banner\BannerImageUpload</argument>
+        </arguments>
+    </type>
+    <virtualType name="Robin\Banner\BannerImageUpload" type="Robin\Banner\Model\ImageUploader">
         <arguments>
             <argument name="baseTmpPath" xsi:type="string">banner/tmp/images</argument>
             <argument name="basePath" xsi:type="string">banner/images</argument>
@@ -33,9 +38,4 @@
             </argument>
         </arguments>
     </virtualType>
-    <type name="Robin\Banner\Controller\Adminhtml\Index\Image\Upload">
-        <arguments>
-            <argument name="imageUploader" xsi:type="object">Robin\Banner\BannerImageUpload</argument>
-        </arguments>
-    </type>
 </config>

@@ -1,6 +1,6 @@
 <?php
 
-namespace Robin\Banner\Ui\Component\Listing\Columns;
+namespace Robin\Banner\Ui\Component\Listing\Column;
 
 use Magento\Framework\View\Element\UiComponentFactory;
 use Magento\Framework\View\Element\UiComponent\ContextInterface;

@@ -62,11 +62,11 @@ class Save extends Action
                 $model->load($id);
             }
 
-//            // Validate data
-//            if (!$this->dataProcessor->validateRequireEntry($data)) {
-//                // Redirect to Edit page if it has error
-//                return $resultRedirect->setPath('*/*/edit', ['id' => $model->getId(), '_current' => true]);
-//            }
+            // Validate data
+            if (!$this->dataProcessor->validateRequireEntry($data)) {
+                // Redirect to Edit page if it has error
+                return $resultRedirect->setPath('*/*/edit', ['id' => $model->getId(), '_current' => true]);
+            }
 
             // Update model
             $model->setData($data);

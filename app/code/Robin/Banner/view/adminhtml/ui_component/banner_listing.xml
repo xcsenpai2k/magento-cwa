@@ -117,7 +117,7 @@
         <settings>
             <editorConfig>
                 <param name="clientConfig" xsi:type="array">
-                    <item name="saveUrl" xsi:type="url" path="cms/page/inlineEdit"/>
+                    <item name="saveUrl" xsi:type="url" path="banner/index/inlineEdit"/>
                     <item name="validateBeforeSave" xsi:type="boolean">false</item>
                 </param>
                 <param name="indexField" xsi:type="string">id</param>
@@ -152,12 +152,12 @@
         <column name="image">
             <settings>
                 <filter>text</filter>
-                <editor>
-                    <validation>
-                        <rule name="required-entry" xsi:type="boolean">true</rule>
-                    </validation>
-                    <editorType>text</editorType>
-                </editor>
+<!--                <editor>-->
+<!--                    <validation>-->
+<!--                        <rule name="required-entry" xsi:type="boolean">true</rule>-->
+<!--                    </validation>-->
+<!--                    <editorType>text</editorType>-->
+<!--                </editor>-->
                 <label translate="true">Image</label>
             </settings>
         </column>
@@ -197,7 +197,7 @@
                 <label translate="true">Status</label>
             </settings>
         </column>
-        <actionsColumn name="actions" class="Magento\Cms\Ui\Component\Listing\Column\PageActions">
+        <actionsColumn name="actions" class="Robin\Banner\Ui\Component\Listing\Column\Actions">
             <settings>
                 <indexField>id</indexField>
                 <resizeEnabled>false</resizeEnabled>

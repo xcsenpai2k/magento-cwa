@@ -14,12 +14,12 @@ use Magento\TestFramework\Helper\Bootstrap;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Tests for @see \Magento\CatalogWidget\Block\Product\ProductsList
+ * Tests for @see \Magento\CatalogWidget\Block\Product\BannerWidget
  */
 class ProductListTest extends TestCase
 {
     /**
-     * @var ProductsList
+     * @var BannerWidget
      */
     protected $block;
 
@@ -37,7 +37,7 @@ class ProductListTest extends TestCase
     protected function setUp(): void
     {
         $this->objectManager = Bootstrap::getObjectManager();
-        $this->block = $this->objectManager->create(ProductsList::class);
+        $this->block = $this->objectManager->create(BannerWidget::class);
         $this->categoryCollection = $this->objectManager->create(CategoryCollection::class);
     }
 

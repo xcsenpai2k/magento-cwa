@@ -21,11 +21,11 @@ class Upload extends \Magento\Backend\App\Action implements HttpPostActionInterf
      * Upload constructor.
      *
      * @param \Magento\Backend\App\Action\Context $context
-     * @param \Magento\Catalog\Model\ImageUploader $imageUploader
+     * @param \Robin\Banner\Model\ImageUploader $imageUploader
      */
     public function __construct(
         \Magento\Backend\App\Action\Context $context,
-        \Magento\Catalog\Model\ImageUploader $imageUploader
+        \Robin\Banner\Model\ImageUploader $imageUploader
     ) {
         parent::__construct($context);
         $this->imageUploader = $imageUploader;
@@ -51,7 +51,7 @@ class Upload extends \Magento\Backend\App\Action implements HttpPostActionInterf
         $imageId = $this->_request->getParam('param_name', 'images');
 
         try {
-            $result = $this->imageUploader->saveFileToTmpDir('images');
+            $result = $this->imageUploader->saveFileToTmpDir($imageId);
         } catch (\Exception $e) {
             $result = ['error' => $e->getMessage(), 'errorcode' => $e->getCode()];
         }
